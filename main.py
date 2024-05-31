@@ -1,7 +1,7 @@
 from HandleRequests import RequestsHandler
 from configparser import ConfigParser
 import Roblox, time
-
+print("Made by Flaried")
 
 def main():
     RobloxAcc = Roblox.RobloxAPIs(Cookie, Proxies=False)
