@@ -22,14 +22,14 @@ def main():
             while retries < max_retries:
                 Response = RobloxAcc.PurchaseItem(int(productId), 1, ExpectedPrice, int(SellerID))
                 if Response is not None:
-                    print("Bought", ItemName)
+                    print("[DoggoBuyer] Bought", ItemName)
                     break
                 else:
-                    print("Couldnt buy", ItemName, "Trying again")
+                    print("[DoggoBuyer] Couldnt buy", ItemName, "Trying again")
                     retries += 1
                     time.sleep(5)
         else:
-            print("Already Own", ItemName)
+            print("[DoggoBuyer] Already Own", ItemName)
 
 if __name__ == "__main__":
     file = 'Settings.cfg'
