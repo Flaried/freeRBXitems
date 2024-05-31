@@ -4,7 +4,8 @@ import Roblox, time
 print("Made by Flaried")
 
 def main():
-    RobloxAcc = Roblox.RobloxAPIs(Cookie, Proxies=False) 
+    Useproxies = True if config['Items']['PurchaseTimeCooldown'].lower() == "true" else False
+    RobloxAcc = Roblox.RobloxAPIs(Cookie, Proxies=Useproxies) 
     UserdID = RobloxAcc.getUserId()
     Inventory = RobloxAcc.getUserInventory(UserdID)
     with open("Ids.txt", "r") as File:
@@ -44,8 +45,13 @@ if __name__ == "__main__":
     file = 'Settings.cfg'
     config = ConfigParser()
     config.read(file)
-    Cookie = config['Authentication']['.ROBLOSECURITY Cookie']
-    Timesleep= config['Items']['PurchaseTimeCooldown']
+    try:
+        Cookie = config['Authentication']['.ROBLOSECURITY Cookie']
+        UseProxiesWithCookies = config['Items']['UseProxiesWithCookies']
+        Timesleep= config['Items']['PurchaseTimeCooldown']
+    except:
+        print("Failed to read or reach the config file")
+        return None
     if config['Items']['RefreshIds'].lower() == 'true':
         Scraper = Roblox.RobloxAPIs(Proxies=True)
         Scraper.scanRobloxCatalog()
