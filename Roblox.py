@@ -55,7 +55,7 @@ class RobloxAPIs():
                     print("Got error:", Response.json())
                     time.sleep(30)
         Inventory.extend(self.getBundleInventory(userID))
-        print(len(Inventory), "length")
+        print(len(Inventory), "Items in inventory")
         return Inventory
 
     def getBundleInventory(self, userID):
@@ -127,7 +127,7 @@ class RobloxAPIs():
                         if item not in listOfIds:
                             listOfIds.append(item)
                     
-                    print("Appending to list",len(listOfIds))
+                    print("[DoggoBuyer] Appending to item to list",len(listOfIds))
         
         # Write the collected IDs to a file
         with open("Ids.txt", "w") as File:
