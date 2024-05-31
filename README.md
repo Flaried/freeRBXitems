@@ -1,7 +1,9 @@
 Roblox Bot that buys every free item thats in catalog thats sold by the Offical Roblox account.
 
 Roblox.py - Manages Roblox APIs
+
 HandleRequest.py - Manages status codes and other errors
+
 main.py - main program to buy the Items
 
 [PROCESS THE BOT TAKES]
