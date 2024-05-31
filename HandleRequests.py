@@ -105,8 +105,12 @@ class RequestsHandler:
         """
         Loads all proxies for class
         """
-        with open(file_path, 'r') as file:
-            cls.proxies = ["http://" + line.strip() for line in file if line.strip()]
+        try:
+            with open(file_path, 'r') as file:
+                cls.proxies = ["http://" + line.strip() for line in file if line.strip()]
+        except:
+            print("No proxy file, returning None.")
+            return None
 
     @classmethod
     def refresh_proxies(cls, file_path='proxies.txt'):
