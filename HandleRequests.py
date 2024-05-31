@@ -58,7 +58,6 @@ class RequestsHandler:
         """
         while True:
             if not self.proxies:
-                print("Couldn't find proxies, using none.")
                 self.use_proxies = False
             proxy_dict = self.return_proxy() if self.use_proxies else None
 
