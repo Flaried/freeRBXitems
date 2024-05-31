@@ -90,10 +90,10 @@ class RequestsHandler:
                 if self.use_proxies:
                     self.rate_limit(proxy_dict['http'])
                 else:
-                    print("Rate limited without proxies, waiting 30 secs.")
-                    time.sleep(30)
+                    print("Rate limited without proxies, waiting 45 secs.")
+                    time.sleep(45)
             elif Response.status_code == 500:
-                print("Somethings wrong with the request..")
+                print("API failed to respond..")
                 return None
 
         
