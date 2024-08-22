@@ -25,6 +25,9 @@ class RequestsHandler:
         """
         print(f"Rate limit hit for proxy {proxy}, switching proxy...")
         self.proxy_timeout[proxy] = time.time() + self.timeout_duration
+        
+   def blacklist_proxy(self, proxy):
+        self.proxies.remove(proxy)
 
     def return_proxy(self):
         """
@@ -69,12 +72,17 @@ class RequestsHandler:
             Req = requests
             if self.Session is not None:
                 Req = self.Session
-
-            if method == "get":
-                Response = Req.get(URL, headers=self.headers, proxies=proxy_dict)
-            elif method == "post":
-                Response = Req.post(URL, headers=self.headers, json=payload, proxies=proxy_dict)
-            
+            # Try accept for proxy errors/timeout
+            try:
+                if method == "get":
+                    Response = Req.get(URL, headers=self.headers, proxies=proxy_dict, timeout=30)
+                elif method == "post":
+                    Response = Req.post(URL, headers=self.headers, json=payload, proxies=proxy_dict, timeout=30)
+            except:    #except requests.exceptions.ProxyError:
+                print(f"Proxy  Error {proxy_dict['http']}.. blacklisting")
+                self.rate_limit(proxy_dict['http'])
+                continue
+                
             """
             Status Code Managment
             """
