@@ -105,10 +105,10 @@ class RequestsHandler:
                 return None
             elif Response.status_code == 400:
                 print("Something is wrong with the request/payload")
-                print(Response.Text, (Response.status_code))
+                print(Response.text, (Response.status_code))
             else:
                 print("Got unknown status code")
-                print(Response.Text, (Response.status_code))
+                print(Response.text, (Response.status_code))
                 return None
         
 
