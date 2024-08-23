@@ -103,7 +103,13 @@ class RequestsHandler:
             elif Response.status_code == 500:
                 print("API failed to respond..")
                 return None
-
+            elif Response.status_code == 400:
+                print("Something is wrong with the request/payload")
+                print(Response.Text, (Response.status_code))
+            else:
+                print("Got unknown status code")
+                print(Response.Text, (Response.status_code))
+                return None
         
 
             #return None
