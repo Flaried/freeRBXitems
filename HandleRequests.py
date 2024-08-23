@@ -106,6 +106,7 @@ class RequestsHandler:
             elif Response.status_code == 400:
                 print("Something is wrong with the request/payload")
                 print(Response.text, (Response.status_code))
+                return None
             else:
                 print("Got unknown status code")
                 print(Response.text, (Response.status_code))
