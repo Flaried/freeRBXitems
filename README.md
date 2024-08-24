@@ -1,4 +1,4 @@
-Roblox Bot that buys every free item thats in catalog thats sold by the Offical Roblox account.
+Roblox Bot that buys every free item thats in catalog thats sold by the Official Roblox account.
 
 Join Discord for release and .exe: https://discord.gg/f4mx2nQTYy
 
